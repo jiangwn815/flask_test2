@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block page_content %}
+  <h2>Register</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('main.register') }}" method=post>
+    <dl>
+      <dt>Username:
+      <dd><input type=text name=username>
+      <dt>Password:
+      <dd><input type=password name=password>
+      <dd><input type=submit value=Register>
+    </dl>
+  </form>
+  {{ wtf.quick_form(form) }}
+{% endblock %}

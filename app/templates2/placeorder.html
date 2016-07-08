@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}免计划来袭！{% endblock %}
+{% block page_content %}
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<style>
+    a{font-family:Lobster;}
+    .form{width:250px;margin:0 auto;}
+</style>>
+<h2>Register</h2>
+{{ wtf.quick_form(form) }}
+<form action="" method="post" class="form" id="diyform">
+    {{form.hidden_tag()}}
+    <div class="form-group ">
+        <label class="control-label" for="id_no">身份证号</label>
+        {{form.id_no(class="form-control")}}
+
+    </div>
+    <div class="form-group ">
+        <label class="control-label" for="id_no">备注</label>
+        {{form.ps_text(class="form-control",placeholder="如有特殊要求，请备注说明")}}
+
+    </div>
+
+</form>
+{{ form.submit(class="btn btn-block btn-info") }}
+{% endblock %}

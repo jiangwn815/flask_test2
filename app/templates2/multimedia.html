@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/static/">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>组合包办理</title>
+	<link href="mlcss.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		.baowenzi{
+			top: 4.6em;
+		}
+		.lilist li {
+			height:9em;
+		}
+	</style>
+	<script src="jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+			WeixinJSBridge.call('showOptionMenu');
+		});
+	</script>
+</head>
+<body>
+
+	<div class="top2">
+		<div class="top1">
+			<a href="javascript:history.go(-1)"><img src="t1.png">
+			</a>
+		</div>
+		<div class="top2">手机组合包</div>
+		<div class="top3">
+			<a href="/dx/index/business?fromid=ojIZ3joauov_JaLmg6jw8id-Cgxw&token=tywz_token_wx&sources=tywz_token_wx"><img src="index.png"> </a>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<form name="form1" id="qnbForm" action="/dx/tqbController/confirm" method="post">
+		<div class="liutitle">
+			<div class="ltinfo">可选套餐</div>
+		</div>
+		<div class="lilist" id="lilist">
+			<ul>
+
+				<li class="ynow" offerId="993029188" offerName="乐视视频-15元本地定向流量包"
+						vsopOfferId="993029190" vsopOfferName="服务-乐视会员定向流量组合包"
+						zfInfo="乐视视频-15元本地定向流量包">
+					<a href="javascript:void(null);">
+						<div class="baopic">
+							<img src="bao5.png">
+						</div>
+						<div class="baowz">
+							乐视视频本地定向流量包<br>15元
+						</div>
+						<div class="baowenzi" style="top:6.1em">
+							乐视视频定向流量<span class="cheng">2G</span><br>
+							乐次元会员<span class="cheng">31天</span>
+						</div>
+					</a>
+				</li>
+                <li class="yno" offerId="993029189" offerName="乐视视频-15元本地定向流量包"
+						vsopOfferId="993029191" vsopOfferName="服务-乐视会员定向流量组合包"
+						zfInfo="乐视视频-15元本地定向流量包">
+					<a href="javascript:void(null);">
+						<div class="baopic">
+							<img src="bao5.png">
+						</div>
+						<div class="baowz">
+							优酷视频本地定向流量包<br>20元
+						</div>
+						<div class="baowenzi" style="top:6.1em">
+							优酷视频定向流量<span class="cheng">2G</span><br>
+							优酷黄金会员<span class="cheng">31天</span>
+						</div>
+					</a>
+				</li>
+
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="liutitle">
+			<div class="ltinfo">
+				生效时间</font>
+			</div>
+		</div>
+		<div class="lilist" id="lilist2">
+			<ul>
+		    	<li class="ynow" data-value="0">
+		    		<a href="javascript:void(null);" >
+			        	<div class="baowz2">当月生效</div>
+			        	<div class="baowenzi2">不包含生效前当月已使用或超出的流量,月底不自动失效。</div>
+			        </a>
+		        </li>
+			</ul>
+			<div class="clear"></div>
+
+			<div class="jieshi">
+            <div id="tqsm">
+				<strong style="font-size: 14px;">特权包说明：</strong>
+				<br>
+					1、本特惠流量组合包，是流量包和增值业务包的组合产品，必须两个同时订购才能享受本地流量优惠。若取消了增值业务包月，则也不能够继续享受本地流量优惠。<br>
+					2、开通当月按剩余天数收取套餐费。<br>
+					3、每月自动续订，如需取消业务请拨打客服10000。<br>
+					4、定向流量当月未使用完，做清零处理，不累计至次月。<br>
+            </div>
+            <div id="dxsm">
+				<strong style="font-size: 14px;">定向流量说明：</strong>
+				<br>
+					1、包含2G在北京本地通过手机上网（不含wifi）使用指定客户端产生的流量，包括指定客户端下的图片、文字、在线视频、离线缓存等内容的省内流量（不含漫游）。<br>
+					2、开通当月仅包含剩余天数的省内定向流量。<br>
+					3、收到开通成功短信后，请断开网络连接，重新连接网络，以确保优惠内容生效。<br>
+            </div>
+                <div id="993029188" class="showjs">
+				<strong style="font-size: 14px;">乐视特权包说明：</strong>
+				<br>
+					1、乐视特权包除定向流量外包含乐视乐次元影视会员，有效周期为31天，自成功开通日起计算，不受自然月影响。<br>
+					2、乐视【乐次元影视会员】适用于在手机、电脑、平板电脑端享受乐视影视会员权益，包括：免费独享会员片库、点播片库免费看、播放无广告、1080P高清画质等特权。<br>
+					3、下载并安装乐视视频客户端 http://dwz.cn/1ylQso 通过本手机号注册/登录乐视账号，即可享受会员权益。登录后进入"用户中心">>"我的主页"中，查看影视会员有效期。<br>
+					4、乐视【乐次元影视会员】会员有效期支持叠加，尚未到期的会员权益不清除，再次订购后可累计使用。<br>
+					5、活动最终解释权归乐视视频所有，如有疑问请致电乐视会员客服：4000300104 。<br>
+				</div>
+				<div id="993029189" class="showjs" style="display:none" >
+				<strong style="font-size: 14px;">优酷特权包说明：</strong>
+				<br>
+					1、优酷特权包除定向流量外包含乐视乐次元影视会员，有效周期为31天，自成功开通日起计算，不受自然月影响。<br>
+					2、乐视【乐次元影视会员】适用于在手机、电脑、平板电脑端享受乐视影视会员权益，包括：免费独享会员片库、点播片库免费看、播放无广告、1080P高清画质等特权。<br>
+					3、下载并安装乐视视频客户端 http://dwz.cn/1ylQso 通过本手机号注册/登录乐视账号，即可享受会员权益。登录后进入"用户中心">>"我的主页"中，查看影视会员有效期。<br>
+					4、乐视【乐次元影视会员】会员有效期支持叠加，尚未到期的会员权益不清除，再次订购后可累计使用。<br>
+					5、活动最终解释权归乐视视频所有，如有疑问请致电乐视会员客服：4000300104 。<br>
+				</div>
+			</div>
+
+		</div>
+		<div class="anniu">
+			<input type="button" class="qubanli" value="开  通" id="btnOpen" style="width:40%">
+			<input type="reset" class="qubanli" value="退  订" id="btnCancel" style="width:40%" >
+		</div>
+
+		<input type="hidden" id="offerId" name="offerId" value="993029188" />
+		<input type="hidden" id="offerName" name="offerName" value="乐视视频-15元本地定向流量包" />
+		<input type="hidden" id="vsopOfferId" name="vsopOfferId" value="993029190" />
+		<input type="hidden" id="vsopOfferName" name="vsopOfferName" value="服务-乐视会员定向流量组合包" />
+		<input type="hidden" id="zfInfo" name="zfInfo" value="乐视视频本地定向流量包15元" />
+
+		<input type="hidden" id="actionType" name="actionType" value="0" />
+
+		<input type="hidden" id="fashion" name="fashion" value="1" />
+		<input type="hidden" id="fromid" name="fromid" value="ojIZ3joauov_JaLmg6jw8id-Cgxw" />
+		<input type="hidden" id="token" name="token" value="tywz_token_wx" />
+		<input type="hidden" id="sources" name="sources" value="tywz_token_wx" />
+		<input type="hidden" id="businessName" name="businessName" value="娱乐特权包" />
+
+	</form>
+
+	<div class="blankend"></div>
+
+	<script type="text/javascript">
+
+		$(function(){
+
+			$("#lilist li").click(function(){
+				$("#lilist").find(".ynow").attr("class","yno");
+				$(this).attr("class","ynow");
+				$(".showjs").css("display","none");
+				$("#"+$(this).attr("offerid")).css("display","block");
+			});
+
+			//开通
+			$("#btnOpen").click(function(){
+				$("#actionType").val("0");
+				var choose = $("#lilist").find(".ynow");
+				$("#offerId").val($(choose).attr("offerId"));
+				$("#offerName").val($(choose).attr("offerName"));
+				$("#vsopOfferId").val($(choose).attr("vsopOfferId"));
+				$("#vsopOfferName").val($(choose).attr("vsopOfferName"));
+				$("#zfInfo").val($(choose).attr("zfInfo"));
+				$("#qnbForm").submit();
+			});
+
+			//取消
+			$("#btnCancel").click(function(){
+				$("#actionType").val("1");
+				var choose = $("#lilist").find(".ynow");
+				$("#offerId").val($(choose).attr("offerId"));
+				$("#offerName").val($(choose).attr("offerName"));
+				$("#vsopOfferId").val($(choose).attr("vsopOfferId"));
+				$("#vsopOfferName").val($(choose).attr("vsopOfferName"));
+				$("#zfInfo").val($(choose).attr("zfInfo"));
+				$("#qnbForm").submit();
+			});
+		})
+	</script>
+</body>
+</html>

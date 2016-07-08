@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+    {% block title %}Show entries
+    {% endblock %}
+{% block head %}
+{{ super() }}
+    <link href="/static/mycss.css" rel="stylesheet">
+    <script href="/static/myjs.js"></script>
+{% endblock %}
+{% block page_content %}
+
+  {% if session.logged_in %}
+
+    <form action="#" method=post class=add-entry>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=30 name=title>
+        <dt>Text:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  {% endif %}
+  <h1>Show entries</h1><!-- 忽略多余的空行 -->
+
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}</li>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em></li>
+  {% endfor %}
+  </ul>
+  <ul class=usrs>
+  {% for user in usr_list %}
+    <li><h2>{{ user.email }}</h2>{{ user.created_date }}</li>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em></li>
+  {% endfor %}
+  </ul>
+    <h1> {{ format_price(0.33) }}</h1>
+    <h1> {{ 0.33|format_price2 }}</h1>
+    <a href="http://www.baidu.com" target="_blank">W3C</a>
+    <img id="im1" src="{{ url_for('static', filename='eg_mouse.jpg') }}" width="128" height="128"
+         alt="Big Mouth" />
+    <img id="im2" src="{{ url_for('static', filename='eg_mouse2.jpg') }}" width="128" height="128"
+         alt="Big Mouth" />
+    <a href="http://www.baidu.com" target="_blank">
+      <img src="{{ url_for('static', filename='eg_mouse.jpg') }}" width="128" height="128"
+         alt="Big Mouth" />
+    </a>
+
+
+{% endblock %}
+{% block page_footer %}
+<p id="p1">Hello World!</p>
+<p class="footertext" id="footer">Written by <a href="mailto:jwn6@sina.com">JWN</a>.</p>
+<script>
+document.getElementById("footer").onclick=function(){changeText(this)};
+document.getElementById("footer").onmouseover=function(){changeColor(this)};
+document.getElementById("im1").onclick=function(){changeBorderColor(this)};
+document.getElementById("im2").onclick=function(){changeBorderColor(this)};
+function changeBorderColor(id){
+document.getElementById("im1").style.borderColor="black";
+document.getElementById("im2").style.borderColor="black";
+id.style.borderColor="blue"
+}
+
+function changeText(id){
+  if(id.innerHTML.length<60){
+    id.innerHTML+=Date();
+
+  }
+
+}
+function changeColor(id){
+  if(id.style.color!="blue"){
+  id.style.color="blue"
+  }
+  else{
+  id.style.color="gray"
+  }
+}
+
+</script>
+
+{% endblock %}
