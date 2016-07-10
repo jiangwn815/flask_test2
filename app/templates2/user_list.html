@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+    {% block title %}Show entries
+    {% endblock %}
+{% block head %}
+{{ super() }}
+    <link href="/static/user-list-css.css" rel="stylesheet">
+    <script href="/static/myjs.js"></script>
+{% endblock %}
+{% block page_content %}
+
+<div class="user-list-left">
+  <ul class="user-left">
+  {% for user in sqlite_user %}
+    <li><span>{{ user.email }}</span><span>{{ user.created_date|date_filter }}</span></li>
+  {% else %}
+    <li><span>Unbelievable.  No entries here so far</span></li>
+  {% endfor %}
+  </ul>
+  </div>
+
+<div class="user-list-right">
+  <ul class="user-right">
+  {% for user in mysql_user %}
+    <li><span>{{ user[0] }}</span></li>
+  {% else %}
+    <li><span>Unbelievable.  No users here so far</span></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+{% block page_footer %}
+<p class="footertext" id="footer">Written by <a href="mailto:jwn6@sina.com">JWN</a>.</p>
+<script>
+document.getElementById("footer").onclick=function(){changeText(this)};
+document.getElementById("footer").onmouseover=function(){changeColor(this)};
+document.getElementById("im1").onclick=function(){changeBorderColor(this)};
+document.getElementById("im2").onclick=function(){changeBorderColor(this)};
+function changeBorderColor(id){
+document.getElementById("im1").style.borderColor="black";
+document.getElementById("im2").style.borderColor="black";
+id.style.borderColor="blue"
+}
+
+function changeText(id){
+  if(id.innerHTML.length<60){
+    id.innerHTML+=Date();
+
+  }
+
+}
+function changeColor(id){
+  if(id.style.color!="blue"){
+  id.style.color="blue"
+  }
+  else{
+  id.style.color="gray"
+  }
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+.user-list-left{
+
+    width:40%;
+    float:left;
+    background-color:#E0E0E0;
+}
+.user-list-right{
+
+    margin-left:45%;
+    width:45%;
+
+    background-color:#E0E0E0;
+}
+
+
+.footer{
+    border-top:solid 1px #F0F0F0;
+    margin-top:10px;
+    clear:both;
+    text-align:center;
+}

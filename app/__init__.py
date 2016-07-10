@@ -3,6 +3,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
+from datetime import datetime
 '''
 from flask.ext.mail import Mail
 from flask.ext.login import LoginManager
@@ -30,8 +31,14 @@ login_manager.login_view = 'auth.login'
 '''
 
 
+# 过滤器1
 def format_price2(amount, currency=u'€'):
     return u'{1}{0:.2f}'.format(amount, currency)
+
+
+# 过滤器2
+def date22(date_value):
+        return datetime.strftime(date_value, '%Y-%m-%d %H:%M:%S')
 
 
 def create_app(config_name):
@@ -39,6 +46,9 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
     app.jinja_env.filters['format_price2'] = format_price2 # 注册过滤器
+    app.jinja_env.filters['date_filter'] = date22 # 注册过滤器
+
+
     config[config_name].init_app(app)
     # 初始化扩展
     bootstrap.init_app(app)

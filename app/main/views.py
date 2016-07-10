@@ -55,6 +55,15 @@ def index():
     return render_template('show_entries.html', entries=entries, usr_list=usr_list)
 
 
+@main.route("/userlist", methods=['GET'])
+def user_list():
+    cur = g.db.cursor()
+    cur.execute('select user_name from users')
+    user_list_mysql = cur.fetchall()
+    user_list_sqlite = User.query.all()
+    return render_template('user_list.html', mysql_user=user_list_mysql, sqlite_user=user_list_sqlite)
+
+
 @main.route('/register', methods=['GET', 'POST'])  # HEAD&OPTIONS由flask自动处理
 def register():
     cur = g.db.cursor()
@@ -134,11 +143,19 @@ def logout():
     return redirect(url_for('main.show_entries'))
 
 
-@main.context_processor
-def utility_processor():
-    def format_price(amount, currency=u'$'):
-        return u'{1}{0:.2f}'.format(amount, currency)
-    return dict(format_price=format_price)
+
+
+#@main.context_processor
+#def utility_processor():
+    #def format_price(amount, currency=u'$'):
+        #return u'{1}{0:.2f}'.format(amount, currency)
+
+    #def date22(date_value):
+        #return datetime.datetime.strftime(date_value, '%Y-%m-%d %H:%M:%S')
+    #return dict(format_price=format_price, date_processor=date_processor)
+    #return dict(date22=date22)
+
+
 
 
 
