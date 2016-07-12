@@ -6,14 +6,8 @@
 {{ super() }}
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <style>
-        .navbar-nav{
-            float: right
-        }
-        .navbar-inverse{
-            box-shadow: 5px 5px 1px #888888;
-        }
-    </style>
+    <link href="/static/basecss.css" rel="stylesheet">
+
 {% endblock %}
 
 {% block navbar %}
@@ -44,11 +38,32 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container content-body">
         {% block page_content %}
         {% endblock %}
     </div>
+
     <div class="footer">
+        <span class="footertext" id="footertext">
+            <a href="mailto:jwn6@sina.com">联系我</a><span> | </span>
+            <a href="{{ url_for('main.placeOrder') }}">下单页面</a><span> | </span>
+            <a href="{{ url_for('main.user_list') }}">用户清单</a><span> | </span>
+            <a href="{{ url_for('main.multimedia') }}">多媒体平台</a>
+        </span>
+     </div>
+<!-- 必须在要加载事件的组件后定义-->
+<script>
+    function changeText(id){
+        id.innerHTML+="Date()"
+    }
+    function changeColor(id){
+        id.style.color="blue";
+
+    }
+    document.getElementById("footertext").onmouseover=function(){changeColor(this)};
+
+</script>
+
         {% block page_footer %}
         {% endblock %}
     </div>

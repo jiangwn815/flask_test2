@@ -1,24 +1,18 @@
 h1 {
-	text-align:center
-}
-div+div.container {
-	background-color:#E0E0E0
-}
-div.footer {
-	margin-top:20px;
-	margin-left:auto;
-	margin-right:auto;
-	height:40px;
-	background-color:#E0E0E0;
-	border-radius:4px;
 	text-align:center;
+
 }
-.footertext {
-	margin-top:20px;
-}
+
 address {
 	text-align:center
 }
 img[alt] {
 	border:solid
+}
+ul.entries li,ul.usrs li{
+    border-bottom:solid 1px #F0F0F0;
+    padding:10px;
+}
+ul.entries{
+    border-top:solid 1px #F0F0F0;
 }

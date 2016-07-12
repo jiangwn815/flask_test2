@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
     {% block title %}Show entries
     {% endblock %}
 {% block head %}
@@ -8,8 +7,8 @@
     <script href="/static/myjs.js"></script>
 {% endblock %}
 {% block page_content %}
-
 <div class="user-list-left">
+    <p>SQLite user list</p>
   <ul class="user-left">
   {% for user in sqlite_user %}
     <li><span>{{ user.email }}</span><span>{{ user.created_date|date_filter }}</span></li>
@@ -18,8 +17,8 @@
   {% endfor %}
   </ul>
   </div>
-
 <div class="user-list-right">
+    <p>MySQL user list</p>
   <ul class="user-right">
   {% for user in mysql_user %}
     <li><span>{{ user[0] }}</span></li>
@@ -45,9 +44,7 @@ id.style.borderColor="blue"
 function changeText(id){
   if(id.innerHTML.length<60){
     id.innerHTML+=Date();
-
   }
-
 }
 function changeColor(id){
   if(id.style.color!="blue"){
@@ -57,7 +54,5 @@ function changeColor(id){
   id.style.color="gray"
   }
 }
-
 </script>
-
 {% endblock %}

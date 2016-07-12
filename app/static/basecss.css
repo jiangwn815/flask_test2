@@ -1,0 +1,30 @@
+body{
+    font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+    background-color:#E0E0E0;
+}
+div+div.container{
+    background-color:#FFF;
+    padding-bottom:20px;
+    margin-bottom:50px;
+}
+div.footer{
+    background-color:#FFF;
+}
+.navbar-nav{
+    float: right;
+    border-radius:0px;
+        }
+.footer{
+    border-top:solid 1px #F0F0F0;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin:0 auto;
+
+    text-align:center;
+    clear:both;
+
+}
+.footer a{
+    color:#74808b;
+    font-size:14px;
+}

@@ -7,6 +7,7 @@ from flask import request
 from flask import redirect
 from flask import url_for
 from flask import session
+from flask import abort
 import mysql.connector
 
 from .forms import NameForm, RegisterForm, OrderForm, LoginForm
@@ -47,12 +48,24 @@ def index():
     cur.execute('select title,text from entries natural left join users where user_name = %s order by entry_id desc',
                 (user_in,))
     usr_list = User.query.all()
-    #print(usr_list)
-
-
     entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
     cur.close()
     return render_template('show_entries.html', entries=entries, usr_list=usr_list)
+
+
+@main.route('/add',methods = ['POST'])
+def add_entry():
+    user_in = session.get('logged_in')
+    if not user_in:
+        abort(401)
+    cur = g.db.cursor()
+    cur.execute('select user_id from users where user_name = %s',(session.get('logged_in'),))
+    user_id = cur.fetchone()#返回tuple
+    cur.execute('insert into entries (user_id,title,text) values (%s,%s,%s)',
+                (user_id[0],request.form['title'],request.form['text']))
+    g.db.commit()
+    #flash('Entries added')
+    return redirect(url_for('show_entries'))
 
 
 @main.route("/userlist", methods=['GET'])
@@ -84,27 +97,6 @@ def register():
     cur.close()
     # print('register come in2222')
     return render_template('register.html', form=form)
-
-
-@main.route('/placeorder',methods=['GET', 'POST'])
-def placeOrder():
-    form = OrderForm()
-    tod = str(datetime.now())
-    tod = tod[0:4]+tod[5:7]+tod[8:10]
-    print('TOD', tod)
-    SERNUM = "240651"
-    if request.method == 'POST' and form.validate():
-        id_no = form.id_no.data
-        usr_name = form.usr_name.data
-        mobile_no = form.mobile_no.data
-        ps_text = form.ps_text.data
-
-        return redirect(url_for('main.index',id=id_no,un=usr_name,mn=mobile_no,pt=ps_text))
-    return render_template('placeorder.html', form=form)
-
-@main.route('/multimedia',methods=['GET', 'POST'])
-def multimedia():
-    return render_template('multimedia.html')
 
 
 @main.route('/login', methods=['GET', 'POST'])
@@ -140,21 +132,35 @@ def login():
 def logout():
     session.pop('logged_in', None)
     # flash('You were logged out')
-    return redirect(url_for('main.show_entries'))
+    return redirect(url_for('main.index'))
 
 
+@main.context_processor
+def utility_processor():
+    def format_price(amount, currency=u'$'):
+        return u'{1}{0:.2f}'.format(amount, currency)
+    return dict(format_price=format_price)
 
 
-#@main.context_processor
-#def utility_processor():
-    #def format_price(amount, currency=u'$'):
-        #return u'{1}{0:.2f}'.format(amount, currency)
+@main.route('/placeorder',methods=['GET', 'POST'])
+def placeOrder():
+    form = OrderForm()
+    tod = str(datetime.now())
+    tod = tod[0:4]+tod[5:7]+tod[8:10]
+    print('TOD', tod)
+    SERNUM = "240651"
+    if request.method == 'POST' and form.validate():
+        id_no = form.id_no.data
+        usr_name = form.usr_name.data
+        mobile_no = form.mobile_no.data
+        ps_text = form.ps_text.data
 
-    #def date22(date_value):
-        #return datetime.datetime.strftime(date_value, '%Y-%m-%d %H:%M:%S')
-    #return dict(format_price=format_price, date_processor=date_processor)
-    #return dict(date22=date22)
+        return redirect(url_for('main.index',id=id_no,un=usr_name,mn=mobile_no,pt=ps_text))
+    return render_template('placeorder.html', form=form)
 
+@main.route('/multimedia',methods=['GET', 'POST'])
+def multimedia():
+    return render_template('multimedia.html')
 
 
 
