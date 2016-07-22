@@ -48,8 +48,16 @@
             <a href="mailto:jwn6@sina.com">联系我</a><span> | </span>
             <a href="{{ url_for('main.placeOrder') }}">下单页面</a><span> | </span>
             <a href="{{ url_for('main.user_list') }}">用户清单</a><span> | </span>
-            <a href="{{ url_for('main.multimedia') }}">多媒体平台</a>
+            <a href="{{ url_for('main.multimedia') }}">多媒体平台</a><span> | </span>
+            <a href="{{ url_for('main.installment') }}">分期页面</a>
         </span>
+        <span id="time_now">
+            <script>
+                var date_now = new Date();
+                document.getElementById("time_now").innerHTML = date_now.toString().substring(4,16);
+            </script>
+        </span>
+
      </div>
 <!-- 必须在要加载事件的组件后定义-->
 <script>

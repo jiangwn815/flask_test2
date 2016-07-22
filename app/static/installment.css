@@ -1,0 +1,42 @@
+div.form-part{
+    margin:10px auto;
+    padding:2% 1% 1% 2%;
+    width:400px;
+    background:#f0f0f0;
+}
+.input-item{
+    margin:25px auto;
+    padding:10px auto;
+}
+select,input{
+    float:right;
+    margin-right:20px;
+}
+label{
+    margin-left:20px;
+    color:#a0a0a0;
+}
+#bank,#phonetype,#s3,input{
+    width:60%;
+     height:37px;
+}
+#s1,#s2{
+    width:28%;
+     height:37px;
+}
+#s1{
+    margin-right:10px;
+}
+input.input-text{
+    float:right;
+    width:60%;
+    height:37px;
+}
+h2.form-title{
+    font-size:16px;
+    padding:20px auto 20px;
+
+}
+label{
+    padding-top:3%
+}

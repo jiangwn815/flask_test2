@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+    {% block title %}Show entries
+    {% endblock %}
+{% block head %}
+{{ super() }}
+    <link href="/static/installment.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{% endblock %}
+{% block page_content %}
+<div class="form-part">
+    <h2 class="form-title">请填写预约信息</h2>
+    <!--没有name属性的<input>的数据不会被提交-->
+  <form action="#" method="POST">
+      <div class="input-item">
+      <!-- label的for要与id相同，点后标签后辅助聚焦-->
+      <label for="mobile">联系方式</label>
+      <input type="text" id="mobile" name="mobile" class="input-text form-control" />
+      </div>
+      <div class="input-item">
+      <label for="bank">选择银行</label>
+      <select name="area" id="bank"  class="form-control">
+          <option value="0">请选择</option>
+          <option value="1">招商银行</option>
+          <option value="2">广发银行</option>
+          <option value="3">工商银行</option>
+          <option value="4">建设银行</option>
+          <option value="5">农业银行</option>
+      </select>
+      </div>
+      <div class="input-item">
+      <label for="phonetype">选择手机</label>
+      <select name="area" id="phonetype"  class="form-control">
+          <option value="0">请选择</option>
+          <option value="1">iPhone6S/Plus</option>
+          <option value="2">华为P9</option>
+          <option value="3">三星S7</option>
+          <option value="4">其他</option>
+
+      </select>
+      </div>
+
+      <div class="input-item">
+       <label for="s1">选择区域</label>
+           <select name="city" id="s2"  class="form-control">
+          <option value="0">请选择</option>
+      </select>
+      <select name="province" id="s1"  class="form-control">
+          <option value="0">请选择</option>
+          <option value="1">东城区</option>
+          <option value="2">西城区</option>
+          <option value="3">朝阳区</option>
+          <option value="4">丰台区</option>
+          <option value="5">石景山区</option>
+          <option value="6">海淀区</option>
+          <option value="7">门头沟区</option>
+          <option value="8">房山区</option>
+          <option value="9">通州区</option>
+          <option value="10">顺义区</option>
+          <option value="11">昌平区</option>
+          <option value="12">大兴区</option>
+          <option value="13">怀柔区</option>
+          <option value="14">平谷区</option>
+          <option value="15">密云区</option>
+          <option value="16">延庆区</option>
+      </select>
+
+
+
+      </div>
+      <div class="input-item">
+      <label for="s3">选择营业厅</label>
+      <select name="area" id="s3"  class="form-control">
+          <option value="0">请选择</option>
+      </select>
+      </div>
+  </form>
+<p id="text"></p>
+<p id="s4"></p>
+<p id="s5"></p>
+<p id="s6">{{ request.script_root|tojson|safe }}</p>
+
+
+<p><input type=text size=5 name=a> +
+   <input type=text size=5 name=b> =
+   <span id=result>?</span>
+<p><a href=# id=calculate>calculate server side</a>
+
+</div>
+<script src="/static/installment.js">
+
+</script>
+{% endblock %}
+{% block page_footer %}
+
+{% endblock %}

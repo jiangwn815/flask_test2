@@ -28,3 +28,7 @@ div.footer{
     color:#74808b;
     font-size:14px;
 }
+#time_now{
+    float:right;
+    padding-right:5%;
+}

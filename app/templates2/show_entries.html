@@ -10,17 +10,9 @@
 {% block page_content %}
 
   {% if session.logged_in %}
-
-    <form action="{{ url_for('main.add_entry') }}" method=post class=add-entry>
-      <dl>
-        <dt>Title:
-        <dd><input type=text size=30 name=title>
-        <dt>Text:
-        <dd><textarea name=text rows=5 cols=40></textarea>
-        <dd><input type=submit value=Share>
-      </dl>
-    </form>
+   <a href="{{ url_for('main.add_entry') }}">Add entry</a>
   {% endif %}
+
   <h1>Show entries</h1><!-- 忽略多余的空行 -->
 
   <ul class=entries>
@@ -57,13 +49,6 @@
             id.innerHTML+="Date()"
         }
 
-document.getElementById("im1").onclick=function(){changeBorderColor(this)};
-document.getElementById("im2").onclick=function(){changeBorderColor(this)};
-function changeBorderColor(id){
-document.getElementById("im1").style.borderColor="black";
-document.getElementById("im2").style.borderColor="black";
-id.style.borderColor="blue"
-}
 
 function changeText(id){
   if(id.innerHTML.length<60){
@@ -71,7 +56,6 @@ function changeText(id){
   }
 
 }
-
 
     </script>
 

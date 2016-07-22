@@ -8,6 +8,7 @@ from flask import redirect
 from flask import url_for
 from flask import session
 from flask import abort
+from flask import jsonify
 import mysql.connector
 
 from .forms import NameForm, RegisterForm, OrderForm, LoginForm
@@ -34,9 +35,9 @@ def before_request():
 
 @main.teardown_request
 def teardown_request(exception):
-    db = getattr(g, 'db', None)  # g只为一个request存储信息，并且在所有方法可用，不要存在其他object为了线程环境
-    if db is not None:
-        db.close()
+    dbase = getattr(g, 'db', None)  # g只为一个request存储信息，并且在所有方法可用，不要存在其他object为了线程环境
+    if dbase is not None:
+        dbase.close()
 
 
 #@main.route('/show_entries', methods=['GET', 'POST'])
@@ -53,19 +54,20 @@ def index():
     return render_template('show_entries.html', entries=entries, usr_list=usr_list)
 
 
-@main.route('/add',methods = ['POST'])
+@main.route('/add', methods=['GET', 'POST'])
 def add_entry():
     user_in = session.get('logged_in')
     if not user_in:
         abort(401)
-    cur = g.db.cursor()
-    cur.execute('select user_id from users where user_name = %s',(session.get('logged_in'),))
-    user_id = cur.fetchone()#返回tuple
-    cur.execute('insert into entries (user_id,title,text) values (%s,%s,%s)',
-                (user_id[0],request.form['title'],request.form['text']))
-    g.db.commit()
-    #flash('Entries added')
-    return redirect(url_for('show_entries'))
+    if request.method == 'POST':
+        cur = g.db.cursor()
+        cur.execute('select user_id from users where user_name = %s',(session.get('logged_in'),))
+        user_id = cur.fetchone()#返回tuple
+        cur.execute('insert into entries (user_id,title,text) values (%s,%s,%s)',
+                    (user_id[0], request.form['title'],request.form['text']))
+        g.db.commit()
+        return redirect(url_for('show_entries'))
+    return render_template('add_entry.html')
 
 
 @main.route("/userlist", methods=['GET'])
@@ -75,6 +77,12 @@ def user_list():
     user_list_mysql = cur.fetchall()
     user_list_sqlite = User.query.all()
     return render_template('user_list.html', mysql_user=user_list_mysql, sqlite_user=user_list_sqlite)
+
+
+@main.route("/installment", methods=['GET'])
+def installment():
+
+    return render_template('installment.html')
 
 
 @main.route('/register', methods=['GET', 'POST'])  # HEAD&OPTIONS由flask自动处理
@@ -162,6 +170,18 @@ def placeOrder():
 def multimedia():
     return render_template('multimedia.html')
 
+@main.route('/dataprocess',methods=['GET'])
+def dataprocess():
+    return ;
 
-
-
+@main.route('/_add_numbers')
+def add_numbers():
+    a = request.args.get('a', 0, type=int)
+    b = request.args.get('b', 0, type=int)
+    c = request.args.get('c')
+    print(c)
+    return jsonify(
+    {
+            "result":a + b,
+            "str":c
+    })
