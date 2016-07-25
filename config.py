@@ -9,7 +9,11 @@ class Config:
     DATABASE = 'C:\\Users\\jiangwn815\\Documents\\DB\\gittest\\flaskr\\tmp\\flaskr.db'
     DB_CONFIG = {
         'user':'root',
-        'password':'jiang815'
+        'password':'mypassword'
+    }
+    DB_CONFIG2 = {
+        'user': 'root',
+        'passwd': 'mypassword'
     }
     DB_NAME = 'flask_db'
 

@@ -10,6 +10,7 @@ from flask import session
 from flask import abort
 from flask import jsonify
 import mysql.connector
+import pymysql
 
 from .forms import NameForm, RegisterForm, OrderForm, LoginForm
 from .. import db
@@ -18,7 +19,9 @@ from ..models import User, Role
 
 def connect_db():
     conn = mysql.connector.connect(**current_app.config['DB_CONFIG'])
+    conn2 = pymysql.connect(**current_app.config['DB_CONFIG2'])
     conn.database = current_app.config['DB_NAME']
+    conn2.database = current_app.config['DB_NAME']
     return conn  # win下没有权限新建文件夹
 
 
