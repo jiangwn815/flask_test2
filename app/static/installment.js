@@ -1,9 +1,14 @@
 function ajax_func() {
-    $.getJSON('/_add_numbers', {
-        a: $('input[name="a"]').val(),
+    var jsonsub={};
+    jsonsub={a: $('input[name="a"]').val(),
         b: $('input[name="b"]').val(),
-        c: $('input[name="mobile"]').val()
-    }, function(data) {
+        c: $('input[name="mobile"]').val()};
+    $('#ins-form [type!=null]').map(function(){
+        jsonsub[this.name]=this.value;
+        jsonsub[this.id]=this.innerHTML;
+    });
+
+    $.getJSON('/_add_numbers', jsonsub, function(data) {
         $("#result").text(data.result);
         $("#s4").text(data.str);
     });
