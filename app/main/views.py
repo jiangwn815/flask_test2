@@ -9,7 +9,7 @@ from flask import url_for
 from flask import session
 from flask import abort
 from flask import jsonify
-import mysql.connector
+#import mysql.connector
 import pymysql
 
 from .forms import NameForm, RegisterForm, OrderForm, LoginForm
@@ -18,11 +18,11 @@ from ..models import User, Role
 
 
 def connect_db():
-    conn = mysql.connector.connect(**current_app.config['DB_CONFIG'])
+    #conn = mysql.connector.connect(**current_app.config['DB_CONFIG'])
     conn2 = pymysql.connect(**current_app.config['DB_CONFIG2'])
-    conn.database = current_app.config['DB_NAME']
-    conn2.database = current_app.config['DB_NAME']
-    return conn  # win下没有权限新建文件夹
+    #conn.database = current_app.config['DB_NAME']
+    #conn2.database = current_app.config['DB_NAME']
+    return conn2  # win下没有权限新建文件夹
 
 
 @main.before_request
@@ -49,8 +49,7 @@ def index():
     user_in = session.get('logged_in',None)  # 用于请求间需要存储的值
     cur = g.db.cursor()
     print('index come in')
-    cur.execute('select title,text from entries natural left join users where user_name = %s order by entry_id desc',
-                (user_in,))
+    cur.execute('select title,text from entries natural left join users where user_name = %s order by entry_id desc',(user_in,))
     usr_list = User.query.all()
     entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
     cur.close()

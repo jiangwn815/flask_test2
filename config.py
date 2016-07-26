@@ -13,7 +13,8 @@ class Config:
     }
     DB_CONFIG2 = {
         'user': 'root',
-        'passwd': 'mypassword'
+        'passwd': 'mypassword',
+        'db': 'flask_db'
     }
     DB_NAME = 'flask_db'
 

@@ -3,7 +3,7 @@
 from flask import Blueprint
 from flask import g
 from flask import current_app
-import mysql.connector
+#import mysql.connector
 import pymysql
 
 # 由于create_app后才能使用app.route，定义路由太晚，因此用蓝本定义路由
@@ -13,10 +13,10 @@ import pymysql
 main = Blueprint('main', __name__,template_folder='../templates2')  # 1st:蓝本名字 2nd:蓝本所在的包
 
 def before_main():
-    conn = mysql.connector.connect(**current_app.config['DB_CONFIG'])
+    #conn = mysql.connector.connect(**current_app.config['DB_CONFIG'])
     conn2 = pymysql.connect(**current_app.config['DB_CONFIG2'])
-    conn.database = current_app.config['DB_NAME']
-    conn2.database = current_app.config['DB_NAME']
+    #conn.database = current_app.config['DB_NAME']
+    #conn2.database = current_app.config['DB_NAME']
     g.db =  conn2
 
 def teardown_main():
