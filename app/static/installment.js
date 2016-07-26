@@ -4,8 +4,8 @@ function ajax_func() {
         b: $('input[name="b"]').val(),
         c: $('input[name="mobile"]').val()};
     $('#ins-form [type!=null]').map(function(){
-        jsonsub[this.name]=this.value;
-        jsonsub[this.id]=this.innerHTML;
+        jsonsub[this.name]=this.type+this.value;
+        //jsonsub[this.id]=this.innerHTML;
     });
 
     $.getJSON('/_add_numbers', jsonsub, function(data) {
