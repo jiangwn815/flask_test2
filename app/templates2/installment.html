@@ -78,13 +78,13 @@
 <p id="text"></p>
 <p id="s4"></p>
 <p id="s5"></p>
-<p id="s6">{{ request.script_root|tojson|safe }}</p>
+<p id="s6" style="display:none">{{ request.script_root|tojson|safe }}</p>
 
 
 <p><input type=text size=5 name=a> +
    <input type=text size=5 name=b> =
    <span id=result>?</span>
-<p><a href=# id=calculate>calculate server side</a>
+<p><a href=# id=calculate>ajax go</a>
 
 </div>
 <script src="/static/installment.js">

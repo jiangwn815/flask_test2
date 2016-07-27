@@ -96,9 +96,21 @@ function checkMobile(){
         document.getElementById("text").innerHTML="请输入11位手机号码";
     }
 }
+function jqcheckMobile(){
+    var mobilereg=/^1[35789]\d{9}$/;
+    var no=$('#mobile').val().replace(/\s*/g,"");
+    $('#mobile').val(no);
+    if (!mobilereg.test(no)){
+        $("#text").text('请输入11位手机号码');
+    }
+}
 function cleanWarning(){
     document.getElementById("s5").innerHTML="";
 }
+function jqcleanWarning(){
+    $('#text').text('');
+}
+
 function setup() {
     document.getElementById("s3").onchange = changeAddress;
     document.getElementById("mobile").onblur = checkMobile;
@@ -110,4 +122,19 @@ function setup() {
         document.getElementById("s"+i).onchange = new Function("change(" + (i + 1) + ");");
     }
 }
-window.onload = setup;
+function jqsetup() {
+    $('#s3').change(changeAddress);
+    $('#mobile').blur(jqcheckMobile);
+    $('#mobile').focus(jqcleanWarning);
+    $('#calculate').click(ajax_func);
+
+    for (i = 1; i < s.length ; i++){
+    //new Function为包装对象 这样再typeof结果就是object而不是function
+        //document.getElementById("s"+i).onchange = new Function("change(" + (i + 1) + ");");
+        $('#s'+i).change(new Function("change(" + (i + 1) + ");"));
+    }
+}
+//window.onload = jqsetup;
+$(function(){
+    jqsetup();
+});
