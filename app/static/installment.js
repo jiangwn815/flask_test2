@@ -16,7 +16,7 @@ function ajax_func() {
         }
 
         $('#testid').append(opss);
-        $("#s4").text(data.di+typeof data.di+data.di.length+typeof data.di[0]);
+        //$("#s4").text(data.di+typeof data.di+data.di.length+typeof data.di[0]);
     });
     return false;
 }
