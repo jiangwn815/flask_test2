@@ -1,16 +1,22 @@
 function ajax_func() {
     var jsonsub={};
     jsonsub={a: $('input[name="a"]').val(),
-        b: $('input[name="b"]').val(),
-        c: $('input[name="mobile"]').val()};
+        b: $('input[name="b"]').val()};
     $('#ins-form [type!=null]').map(function(){
-        jsonsub[this.name]=this.type+this.value;
+        jsonsub[this.name]=this.value;
+        jsonsub['Type:'+this.type]=this.value;
         //jsonsub[this.id]=this.innerHTML;
     });
 
     $.getJSON('/_add_numbers', jsonsub, function(data) {
         $("#result").text(data.result);
-        $("#s4").text(data.str);
+        var opss="";
+        for(var i=0;i<data.di.length;i++){
+            opss+= '<option>'+data.di[i]+'</option>';
+        }
+
+        $('#testid').append(opss);
+        $("#s4").text(data.di+typeof data.di+data.di.length+typeof data.di[0]);
     });
     return false;
 }

@@ -180,10 +180,11 @@ def dataprocess():
 def add_numbers():
     a = request.args.get('a', 0, type=int)
     b = request.args.get('b', 0, type=int)
-    c = request.args.get('c')
+    #c = request.args.get('c', 0, type=int)
     print(request.args)
     return jsonify(
     {
-            "result":a + b,
-            "str":c
+            "result": a + b,
+            "di": ["东城区", "西城区", "海淀区", "香河"]
+            #"str":c
     })
