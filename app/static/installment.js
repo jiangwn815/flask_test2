@@ -10,16 +10,40 @@ function ajax_func() {
 
     $.getJSON('/_add_numbers', jsonsub, function(data) {
         $("#result").text(data.result);
-        var opss="";
-        for(var i=0;i<data.di.length;i++){
-            opss+= '<option>'+data.di[i]+'</option>';
-        }
+        //var opss="";
+        //for(var i=0;i<data.di.length;i++){
+        //    opss+= '<option>'+data.di[i]+'</option>';
+       // }
 
-        $('#testid').append(opss);
+       // $('#testid').append(opss);
+       add_option($('#testid'),data.di);
         //$("#s4").text(data.di+typeof data.di+data.di.length+typeof data.di[0]);
     });
     return false;
 }
+
+function changeArea(){
+
+    var pro_val={};
+    pro_val["pval"]=$('#provincejq').val();
+
+    $.getJSON('/get_area',pro_val,function(data){
+        add_option($('#areajq'),data.di);
+    });
+}
+
+function add_option(id,opts){
+    var opss="";
+    var count=0;
+    if(opts) count=opts.length;
+
+        for(var i=0;i<count;i++){
+            opss+= '<option>'+opts[i]+'</option>';
+        }
+
+        id.append(opss);
+}
+
 
 function Dsy() {
         this.Items = {};
@@ -133,6 +157,7 @@ function jqsetup() {
     $('#mobile').blur(jqcheckMobile);
     $('#mobile').focus(jqcleanWarning);
     $('#calculate').click(ajax_func);
+    $('#provincejq').change(changeArea);
 
     for (i = 1; i < s.length ; i++){
     //new Function为包装对象 这样再typeof结果就是object而不是function

@@ -180,11 +180,29 @@ def dataprocess():
 def add_numbers():
     a = request.args.get('a', 0, type=int)
     b = request.args.get('b', 0, type=int)
-    #c = request.args.get('c', 0, type=int)
+
     print(request.args)
     return jsonify(
     {
             "result": a + b,
             "di": ["东城区", "西城区", "海淀区", "香河"]
+    })
+
+@main.route('/get_area')
+def get_area():
+    print("get_area func in");
+    area_info={
+        'dc': ['二环内'],
+        'xc': ["内环到二环里", "二环外到三环"],
+        'cy': ["朝二环内", "三环内", "四环五环内"]
+    }
+    pv = request.args.get('pval', "null", type=str)
+    print("pv:"+str(pv))
+    print(request.args)
+    #默认设定mimetype='application/json'
+    #json.dump()不设定mimetype,需要手动设定
+    return jsonify(
+    {
+            "di": area_info.get(pv)
             #"str":c
     })

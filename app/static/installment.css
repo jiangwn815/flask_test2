@@ -16,11 +16,11 @@ label{
     margin-left:20px;
     color:#a0a0a0;
 }
-#bank,#phonetype,#s3,input{
+#bank,#phonetype,#bankjq,#phonetypejq,#s3,#storejq,#testid,input{
     width:60%;
      height:37px;
 }
-#s1,#s2{
+#s1,#s2,#provincejq,#areajq{
     width:28%;
      height:37px;
 }
