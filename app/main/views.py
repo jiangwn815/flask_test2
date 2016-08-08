@@ -170,7 +170,6 @@ def placeOrder():
 
 @main.route('/showorder',methods=['GET', 'POST'])
 def showOrder():
-
     if request.method == 'POST' and form.validate():
         id_no = form.id_no.data
         usr_name = form.usr_name.data
