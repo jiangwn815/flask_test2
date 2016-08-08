@@ -5,19 +5,14 @@ function ajax_func() {
     $('#ins-form [type!=null]').map(function(){
         jsonsub[this.name]=this.value;
         jsonsub['Type:'+this.type]=this.value;
-        //jsonsub[this.id]=this.innerHTML;
+
     });
 
     $.getJSON('/_add_numbers', jsonsub, function(data) {
         $("#result").text(data.result);
-        //var opss="";
-        //for(var i=0;i<data.di.length;i++){
-        //    opss+= '<option>'+data.di[i]+'</option>';
-       // }
 
-       // $('#testid').append(opss);
        add_option($('#testid'),data.di);
-        //$("#s4").text(data.di+typeof data.di+data.di.length+typeof data.di[0]);
+
     });
     return false;
 }
@@ -33,8 +28,9 @@ function changeArea(){
 }
 
 function add_option(id,opts){
-    var opss="";
+    var opss='<option>请选择</option>';
     var count=0;
+    var lis=id.find('[value!=""]').remove();
     if(opts) count=opts.length;
 
         for(var i=0;i<count;i++){
@@ -132,6 +128,7 @@ function jqcheckMobile(){
     $('#mobile').val(no);
     if (!mobilereg.test(no)){
         $("#text").text('请输入11位手机号码');
+        $('#mobile').css('background-color','#FFF200');
     }
 }
 function cleanWarning(){
@@ -139,6 +136,7 @@ function cleanWarning(){
 }
 function jqcleanWarning(){
     $('#text').text('');
+    $('#mobile').css('background-color','white');
 }
 
 function setup() {

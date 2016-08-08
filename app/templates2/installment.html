@@ -11,12 +11,13 @@
 <div class="form-part">
     <h2 class="form-title">请填写预约信息</h2>
     <!--没有name属性的<input>的数据不会被提交-->
-  <form action="#" method="POST" id="ins-form">
+  <form action="/placeOrder" method="POST" id="ins-form">
       <div class="input-item">
       <!-- label的for要与id相同，点后标签后辅助聚焦-->
       <label for="mobile">联系方式</label>
       <input type="text" id="mobile" name="mobile" class="input-text form-control" />
       </div>
+      <!--
       <div class="input-item">
       <label for="bank">选择银行</label>
       <select name="bank" id="bank"  class="form-control">
@@ -79,7 +80,7 @@
       <select name="testitem" id="testid"  class="form-control">
           <option value="0">请选择</option>
       </select>
-      </div>
+      </div> -->
       <div class="input-item">
       <label for="bankjq">选择银行</label>
       <select name="bankjq" id="bankjq"  class="form-control">
@@ -104,10 +105,10 @@
       </div>
 
       <div class="input-item">
-       <label for="provincejq">选择区域</label>
-           <select name="areajq" id="areajq"  class="form-control">
-          <option value="0">请选择</option>
-      </select>
+          <label for="provincejq">选择区域</label>
+          <select name="areajq" id="areajq"  class="form-control">
+               <option value="0">请选择</option>
+          </select>
       <select name="provincejq" id="provincejq"  class="form-control">
           <option value="0">请选择</option>
           <option value="dc">东城区</option>
@@ -137,6 +138,10 @@
           <option value="0">请选择</option>
       </select>
       </div>
+      <div class="input-item">
+
+      <input type="submit" id="submit" name="submit" value="提交" class="btn btn-default" />
+      </div>
 
 
   </form>
@@ -152,7 +157,7 @@
 <p><a href=# id=calculate>ajax go</a>
 
 </div>
-<script src="/static/installment.js">
+<script src="/static/installmentjq.js">
 
 </script>
 {% endblock %}

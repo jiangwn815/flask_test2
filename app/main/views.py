@@ -168,6 +168,19 @@ def placeOrder():
         return redirect(url_for('main.index',id=id_no,un=usr_name,mn=mobile_no,pt=ps_text))
     return render_template('placeorder.html', form=form)
 
+@main.route('/showorder',methods=['GET', 'POST'])
+def showOrder():
+
+    if request.method == 'POST' and form.validate():
+        id_no = form.id_no.data
+        usr_name = form.usr_name.data
+        mobile_no = form.mobile_no.data
+        ps_text = form.ps_text.data
+
+        return redirect(url_for('main.index',id=id_no,un=usr_name,mn=mobile_no,pt=ps_text))
+    return render_template('placeorder.html', form=form)
+
+
 @main.route('/multimedia',methods=['GET', 'POST'])
 def multimedia():
     return render_template('multimedia.html')
@@ -194,7 +207,20 @@ def get_area():
     area_info={
         'dc': ['二环内'],
         'xc': ["内环到二环里", "二环外到三环"],
-        'cy': ["朝二环内", "三环内", "四环五环内"]
+        'cy': ["三环以内", "三环到四环间", "四环五环间","五环六环间"],
+        'ft': ["朝二环内", "三环内", "四环五环内"],
+        'sjs': ["朝二环内", "三环内", "四环五环内"],
+        'hd': ["朝二环内", "三环内", "四环五环内"],
+        'mtg': ["朝二环内", "三环内", "四环五环内"],
+        'fs': ["朝二环内", "三环内", "四环五环内"],
+        'tz': ["六环内", "六环外"],
+        'sy': ["马坡", "后沙峪"],
+        'cp': ["城区", "六环内", "城区外"],
+        'dx': ["四环五环间", "五环六环间", "六环以外","亦庄开发区"],
+        'hr': ["城区"],
+        'pg': ["城区"],
+        'my': ["城区"],
+        'yq': ["城区"]
     }
     pv = request.args.get('pval', "null", type=str)
     print("pv:"+str(pv))
