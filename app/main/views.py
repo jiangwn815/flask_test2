@@ -168,6 +168,7 @@ def placeOrder():
         return redirect(url_for('main.index',id=id_no,un=usr_name,mn=mobile_no,pt=ps_text))
     return render_template('placeorder.html', form=form)
 
+
 @main.route('/showorder',methods=['GET', 'POST'])
 def showOrder():
     if request.method == 'POST' and form.validate():
@@ -184,9 +185,11 @@ def showOrder():
 def multimedia():
     return render_template('multimedia.html')
 
+
 @main.route('/dataprocess',methods=['GET'])
 def dataprocess():
-    return ;
+    return True
+
 
 @main.route('/_add_numbers')
 def add_numbers():
@@ -200,22 +203,23 @@ def add_numbers():
             "di": ["东城区", "西城区", "海淀区", "香河"]
     })
 
+
 @main.route('/get_area')
 def get_area():
-    print("get_area func in");
-    area_info={
+    print("get_area func in")
+    area_info = {
         'dc': ['二环内'],
-        'xc': ["内环到二环里", "二环外到三环"],
-        'cy': ["三环以内", "三环到四环间", "四环五环间","五环六环间"],
-        'ft': ["朝二环内", "三环内", "四环五环内"],
-        'sjs': ["朝二环内", "三环内", "四环五环内"],
-        'hd': ["朝二环内", "三环内", "四环五环内"],
-        'mtg': ["朝二环内", "三环内", "四环五环内"],
+        'xc': ["内环到二环里", "二环外到三环", "三环外"],
+        'cy': ["三环以内", "三环到四环间", "四环五环间", "五环六环间"],
+        'ft': ["二环到三环", "三环到四环间", "四环五环间", "五环六环间", "六环外"],
+        'sjs': ["八大处", "苹果园", "古城"],
+        'hd': ["三环内", "三环到四环间", "四环外到五环内", "五环外到六环内"],
+        'mtg': ["城区"],
         'fs': ["朝二环内", "三环内", "四环五环内"],
-        'tz': ["六环内", "六环外"],
-        'sy': ["马坡", "后沙峪"],
+        'tz': ["马驹桥镇", "次渠镇"],
+        'sy': ["马坡地区", "仁和地区"],
         'cp': ["城区", "六环内", "城区外"],
-        'dx': ["四环五环间", "五环六环间", "六环以外","亦庄开发区"],
+        'dx': ["四环五环间", "五环六环间", "六环以外", "亦庄开发区"],
         'hr': ["城区"],
         'pg': ["城区"],
         'my': ["城区"],

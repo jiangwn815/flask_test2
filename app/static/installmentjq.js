@@ -18,10 +18,8 @@ function ajax_func() {
 }
 
 function changeArea(){
-
     var pro_val={};
     pro_val["pval"]=$('#provincejq').val();
-
     $.getJSON('/get_area',pro_val,function(data){
         add_option($('#areajq'),data.di);
     });
@@ -46,16 +44,21 @@ function jqcheckMobile(){
     var no=$('#mobile').val().replace(/\s*/g,"");
     $('#mobile').val(no);
     if (!mobilereg.test(no)){
-        $("#text").text('请输入11位手机号码');
-        $('#mobile').css('background-color','#FFF200');
+        //$("#text").text('请输入11位手机号码');
+        //$('#mobile').css('background-color','#FFF200');
+        $('#mobile').val('');
+        $('#mobile').attr('placeholder','请输入11位手机号码');
+        $('#mobile').parent().addClass('has-error');
         return false;
     }
+
     return true;
 }
 
 function jqcleanWarning(){
-    $('#text').text('');
-    $('#mobile').css('background-color','white');
+    //$('#text').text('');
+    //$('#mobile').css('background-color','white');
+    $('#mobile').parent().removeClass('has-error');
 }
 
 

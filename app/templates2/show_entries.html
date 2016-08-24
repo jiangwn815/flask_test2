@@ -8,12 +8,12 @@
 
 {% endblock %}
 {% block page_content %}
-
+<div class="maincontent">
   {% if session.logged_in %}
    <a href="{{ url_for('main.add_entry') }}">Add entry</a>
   {% endif %}
 
-  <h1>Show entries</h1><!-- 忽略多余的空行 -->
+  <h1 class="text-uppercase">Show entries</h1><!-- 忽略多余的空行 -->
 
   <ul class=entries>
   {% for entry in entries %}
@@ -29,6 +29,7 @@
     <li><em>Unbelievable.  No entries here so far</em></li>
   {% endfor %}
   </ul>
+</div>
    <!--
     <h1> {{ format_price(0.33) }}</h1>
     <h1> {{ 0.33|format_price2 }}</h1>
