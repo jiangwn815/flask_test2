@@ -49,3 +49,8 @@ padding-right:0px;
 label,input{
 vertical-align:middle;
 }
+#warning-info{
+padding:5px;
+margin-bottom:5px;
+visibility:hidden;
+}

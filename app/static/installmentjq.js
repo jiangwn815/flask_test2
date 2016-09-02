@@ -4,7 +4,7 @@ function ajax_func() {
         b: $('input[name="b"]').val()};
     $('#ins-form [type!=null]').map(function(){
         jsonsub[this.name]=this.value;
-        jsonsub['Type:'+this.type]=this.value;
+        //jsonsub['Type:'+this.type]=this.value;
 
     });
 
@@ -20,8 +20,13 @@ function ajax_func() {
 function changeArea(){
     var pro_val={};
     pro_val["pval"]=$('#provincejq').val();
+    pro_val["sval"]=$('#provincejq').val()+$('#areajq').val();
     $.getJSON('/get_area',pro_val,function(data){
-        add_option($('#areajq'),data.di);
+        if(!data.si){
+            add_option($('#areajq'),data.di);
+        }else{
+            add_option($('#storejq'),data.si);
+        }
     });
 }
 
@@ -32,7 +37,7 @@ function add_option(id,opts){
     if(opts) count=opts.length;
 
         for(var i=0;i<count;i++){
-            opss+= '<option>'+opts[i]+'</option>';
+            opss+= '<option value="'+opts[i].substring(opts[i].length-3)+'" >'+opts[i].substring(0,opts[i].length-3)+'</option>';
         }
 
         id.append(opss);
@@ -55,10 +60,29 @@ function jqcheckMobile(){
     return true;
 }
 
+function jqcheckStore(){
+    var testval=true;
+    if($('#provincejq').val()===0){
+        $('#provincejq').parent().addClass('has-error');
+        testval = false;
+    }
+    if($('#areajq').val()===0){
+        $('#areajq').parent().addClass('has-error');
+        testval = false;
+    }
+    if($('#storejq').val()===0){
+        $('#storejq').parent().addClass('has-error');
+        testval = false;
+    }
+    return testval;
+}
+
 function jqcleanWarning(){
     //$('#text').text('');
     //$('#mobile').css('background-color','white');
     $('#mobile').parent().removeClass('has-error');
+    //$('#warning-info').hide();
+    //$('#warning-info').css('visibility','hidden');
 }
 
 
@@ -68,6 +92,7 @@ function jqsetup() {
     $('#mobile').focus(jqcleanWarning);
     $('#calculate').click(ajax_func);
     $('#provincejq').change(changeArea);
+    $('#areajq').change(changeArea);
 
 }
 

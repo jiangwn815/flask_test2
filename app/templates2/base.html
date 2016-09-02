@@ -4,77 +4,127 @@
 
 {% block head %}
 {{ super() }}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-    <link href="/static/basecss.css" rel="stylesheet">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link href="/static/basecss.css" rel="stylesheet">
 
 {% endblock %}
 
 {% block navbar %}
-    <div class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only"> Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"> Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"> Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li> {% if not session.logged_in %}
+                    <a href="{{ url_for('main.register') }}" class="navbar-brand">register</a>
+                    <a href="{{ url_for('main.login') }}" class="navbar-brand">log in</a>
+                    {% else %}
+                    <a href="{{ url_for('main.logout') }}">log out</a>
+                    {% endif %}
+                </li>
+                <li class="dropdown">
+
+                <a href="#" class="dropdown-toggle navbar-brand" id="dropdownMenu2" data-toggle="dropdown">
+                    其他页面
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="mailto:jwn6@sina.com">联系我</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.placeOrder') }}">下单页面
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.user_list') }}">用户清单
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.multimedia') }}">多媒体平台
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.installment') }}">分期页面
+                        </a>
+                    </li>
+                </ul>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container content-body">
+    {% block page_content %}
+    {% endblock %}
+</div>
+
+<div class="container footer">
+    <div class="row">
+        <div class="col-xs-8 btn-group">
+            <button type="button" class="btn btn-default">按钮 1</button>
+            <button type="button" class="btn btn-default">按钮 2</button>
+            <div class="dropup btn-group">
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                    其他页面
+                    <span class="caret"></span>
                 </button>
-                <a class="navbar-brand" href="/"> Flasky</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li> {% if not session.logged_in %}
-                            <a href="{{ url_for('main.register') }}" class="navbar-brand">register</a>
-                            <a href="{{ url_for('main.login') }}" class="navbar-brand">log in</a>
-                         {% else %}
-                            <a href="{{ url_for('main.logout') }}">log out</a>
-                        {% endif %}
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="mailto:jwn6@sina.com">联系我</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.placeOrder') }}">下单页面
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.user_list') }}">用户清单
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.multimedia') }}">多媒体平台
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{{ url_for('main.installment') }}">分期页面
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
+        <div class="col-xs-4">
+                <span id="time_now">
+                    <script>
+                        var date_now = new Date();
+                        var tn = document.getElementById("time_now");
+                        tn.innerHTML = date_now.toString().substring(4,16);
+                        tn.style.fontSize = "60%";
+
+                    </script>
+                </span>
+        </div>
     </div>
-{% endblock %}
 
-{% block content %}
-    <div class="container content-body">
-        {% block page_content %}
-        {% endblock %}
-    </div>
-
-    <div class="footer">
-        <span class="footertext" id="footertext">
-            <a href="mailto:jwn6@sina.com">联系我</a><span> | </span>
-            <a href="{{ url_for('main.placeOrder') }}">下单页面</a><span> | </span>
-            <a href="{{ url_for('main.user_list') }}">用户清单</a><span> | </span>
-            <a href="{{ url_for('main.multimedia') }}">多媒体平台</a><span> | </span>
-            <a href="{{ url_for('main.installment') }}">分期页面</a>
-        </span>
-        <span id="time_now">
-            <script>
-                var date_now = new Date();
-                document.getElementById("time_now").innerHTML = date_now.toString().substring(4,16);
-            </script>
-        </span>
-
-     </div>
+</div>
 <!-- 必须在要加载事件的组件后定义-->
-<script>
-    function changeText(id){
-        id.innerHTML+="Date()"
-    }
-    function changeColor(id){
-        id.style.color="blue";
 
-    }
-    document.getElementById("footertext").onmouseover=function(){changeColor(this)};
 
-</script>
-
-        {% block page_footer %}
-        {% endblock %}
-    </div>
+{% block page_footer %}
+{% endblock %}
+</div>
 {% endblock %}
 
 {% block scripts %}

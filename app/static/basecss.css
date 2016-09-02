@@ -5,7 +5,7 @@ body{
 div+div.container{
     background-color:#FFF;
     padding-bottom:20px;
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 div.footer{
     background-color:#FFF;
@@ -15,24 +15,28 @@ div.footer{
     border-radius:0px;
         }
 .footer{
-    border-top:solid 1px #F0F0F0;
-    padding-top:20px;
-    padding-bottom:20px;
+
+    padding-top:auto;
+    padding-bottom:auto;
     margin:0 auto;
 
     text-align:center;
     clear:both;
 
 }
-.footer a{
-    color:#74808b;
-    font-size:14px;
+.footer.container{
+    margin-bottom:10px;
+    padding-top:5px;
+    padding-bottom:10px;
 }
-#time_now{
-    float:right;
-    padding-right:5%;
-}
+
 a:hover{
-color:black;
-text-decoration:none;
+    color:black;
+    text-decoration:none;
+}
+#dropdownMenu1{
+    width:100%;
+}
+[role=menu]{
+    min-width:60%;
 }
