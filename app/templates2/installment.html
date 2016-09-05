@@ -8,13 +8,21 @@
 {% endblock %}
 {% block page_content %}
 
-<h2 class="form-title">请填写预约信息</h2>
+<!--<h2 class="form-title">请填写预约信息</h2>-->
+<div class="row" id="logodiv">
+<img src="/static/logo.png" id="logoimg" alt="分期0利息0手续费" class="img-responsive" style="width:100px;">
+    <div></div>
+</div>
+<div class="row">
+<img src="/static/fenqi.png" alt="分期0利息0手续费" class="img-responsive">
+</div>
 <div class="row">
 <div class="alert alert-danger col-xs-offset-1 col-xs-10" id="warning-info">错误！请进行一些更改。</div>
 </div>
 <!--没有name属性的<input>的数据不会被提交-->
 <form role="form" action="/placeOrder" method="POST" id="ins-form" class="form-horizontal">
-
+<fieldset>
+    <legend>分期预约信息</legend>
     <div class="input-item form-group">
         <!-- label的for要与id相同，点后标签后辅助聚焦-->
         <label for="mobile" class="col-xs-4 control-label text-center">
@@ -110,12 +118,12 @@
         </div>
     </div>
     <div class="input-item form-group">
-        <div class="col-xs-offset-8 col-xs-4">
+        <div class="col-xs-offset-1 col-xs-10">
             <input type="button" id="submit" name="submit" value="提交" class="btn btn-primary form-control"/>
         </div>
     </div>
 
-
+</fieldset>
 </form>
 <p id="text"></p>
 <p id="s4"></p>
