@@ -1,5 +1,5 @@
 from datetime import datetime
-from . import main
+
 from flask import g
 from flask import render_template
 from flask import current_app
@@ -8,10 +8,12 @@ from flask import redirect
 from flask import url_for
 from flask import session
 from flask import abort
-from flask import jsonify
+from flask import jsonify#先执行包里的__init__.py所有顶级声明
 #import mysql.connector
-import pymysql
+import pymysql #首先搜索同目录下,在搜索默认路径,模块下的函数要pymsyql.funcname方式引用
 
+
+from . import main
 from .forms import NameForm, RegisterForm, OrderForm, LoginForm
 from .. import db
 from ..models import User, Role
@@ -85,6 +87,11 @@ def user_list():
 def installment():
 
     return render_template('installment.html')
+
+@main.route("/installment2", methods=['GET'])
+def installment2():
+
+    return render_template('installment2.html')
 
 
 @main.route('/register', methods=['GET', 'POST'])  # HEAD&OPTIONS由flask自动处理

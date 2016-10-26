@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width:100%;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #head,#footer{
+            background:#555;
+            height:80px;
+            width:100%;
+            position:fixed;
+
+        }
+        #head{
+            top:0%;
+        }
+        #footer{
+            bottom:0%;
+        }
+        #content{
+            margin-top:90px;
+            float:left;
+        }
+
+        ul>li{
+            float:right;
+            margin-left:20px;
+            margin-top:20px;
+            color:white;
+
+        }
+        ul>li:first-child{
+            margin-right:20px;
+        }
+        li>a:link{
+            color:#eee;
+        }
+        li>a:visited{
+            color:#aaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <ul>
+            <li><a href="#">超链接1</a></li>
+            <li><a href="#">超链接2</a></li>
+            <li><a href="#">超链接3</a></li>
+            <li><a href="#">超链接4</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div>kkkk</div>
+    </div>
+    <div id="footer">ddd</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content{
+            position:relative;
+
+        }
+        #bg{
+            background:#ddd;
+            width:400px;
+            position:fixed;
+            padding:20px;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        #r1,#r2{
+            background:#fc0;
+            width:50px;
+            height:50px;
+            position:absolute;
+        }
+        #r1{
+            border-radius:0px 0px 50px 0px;
+            top:0%;
+            left:0%;
+        }
+        #r2{
+            border-radius:50px 0px 0px 0px;
+            bottom:0%;
+            right:0%;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+<div id="bg">
+    <h2>任务注意事项</h2>
+    <ol>
+    <li>思考不同情况下（如灰色高度是根据内容动态变化的）水平垂直居中的解决方案。</li>
+    <li>动手试一试各种情况的组合，父元素和子元素分别取不同的 position 值。思考 position 属性各种取值的真正含义，
+        尤其是 absolute 究竟是相对谁而言的。</li>
+    <li>注意测试不同情况，尤其是极端情况下的效果。</li>
+    <li>调节浏览器宽度，灰色元素始终水平居中。</li>
+    <li>调节浏览器高度，灰色元素始终垂直居中。</li>
+    <li>调节浏览器高度和宽度，黄色扇形的定位始终准确。</li>
+    <li>其他效果图中给出的标识均被正确地实现，错一项扣一分。</li>
+    </ol>
+    <div id="r1"></div>
+    <div id="r2"></div>
+</div>
+</div>
+</body>
+</html>

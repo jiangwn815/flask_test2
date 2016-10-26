@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show entries
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="/static/basecss.css" rel="stylesheet">
+    <link href="/static/installment.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"> Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"> Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/register" class="navbar-brand">register</a>
+                    <a href="/login" class="navbar-brand">log in</a>
+
+                </li>
+                <li class="dropdown">
+
+                    <a href="#" class="dropdown-toggle navbar-brand" id="dropdownMenu2" data-toggle="dropdown">
+                        其他页面
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="mailto:jwn6@sina.com">联系我</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="/placeorder">下单页面
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="/userlist">用户清单
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="/multimedia">多媒体平台
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="/installment">分期页面
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container content-body">
+
+
+    <!--<h2 class="form-title">请填写预约信息</h2>-->
+    <div class="row" id="logodiv">
+        <img src="/static/logo.png" id="logoimg" alt="分期0利息0手续费" class="img-responsive" style="width:100px;">
+        <div></div>
+    </div>
+    <div class="row">
+        <img src="/static/fenqi2.png" alt="分期0利息0手续费" class="img-responsive">
+    </div>
+    <div class="row">
+        <div class="alert alert-danger col-xs-offset-1 col-xs-10" id="warning-info">错误！请进行一些更改。</div>
+    </div>
+    <!--没有name属性的<input>的数据不会被提交-->
+    <form role="form" action="/placeOrder" method="POST" id="ins-form" class="form-horizontal" name="ins-form">
+        <fieldset>
+            <legend>分期预约信息</legend>
+            <div class="input-item form-group">
+                <!-- label的for要与id相同，点后标签后辅助聚焦-->
+                <label for="mobile" class="col-xs-4 control-label text-center">
+                    <span class="glyphicon glyphicon-earphone"></span> 联系方式
+                </label>
+                <div class="col-xs-8">
+                    <input type="text" id="mobile" name="mobile" class="input-text form-control"/>
+                </div>
+            </div>
+            <div class="input-item form-group">
+                <label for="bankjq" class="col-xs-4 control-label text-center">
+                    <span class="glyphicon glyphicon-usd"></span> 选择银行
+                </label>
+                <div class="col-xs-8">
+                    <select name="bankjq" id="bankjq" class="form-control">
+                        <option value="0">请选择</option>
+                        <option value="zs">招商银行</option>
+                        <option value="gf">广发银行</option>
+                        <option value="gs">工商银行</option>
+                        <option value="js">建设银行</option>
+                        <option value="ny">农业银行</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-item form-group">
+                <label for="phonetypejq" class="col-xs-4 control-label text-center">
+                    <span class="glyphicon glyphicon-phone"></span> 选择手机
+                </label>
+                <div class="col-xs-8">
+                    <select name="phonetypejq" id="phonetypejq" class="form-control">
+                        <option value="0">请选择</option>
+                        <option value="i6">iPhone6S/Plus</option>
+                        <option value="p9">华为P9</option>
+                        <option value="s7">三星S7</option>
+                        <option value="other">其他</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-item form-group">
+                <label for="provincejq" class="col-xs-4 control-label text-center">
+                    <span class="glyphicon glyphicon-globe"></span> 选择门店
+                </label>
+                <div class="col-xs-8">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <select name="provincejq" id="provincejq" class="form-control">
+                                <option value="0">请选择</option>
+                                <option value="dc">东城区</option>
+                                <option value="xc">西城区</option>
+                                <option value="cy">朝阳区</option>
+                                <option value="ft">丰台区</option>
+                                <option value="sjs">石景山区</option>
+                                <option value="hd">海淀区</option>
+                                <option value="mtg">门头沟区</option>
+                                <option value="fs">房山区</option>
+                                <option value="tz">通州区</option>
+                                <option value="sy">顺义区</option>
+                                <option value="cp">昌平区</option>
+                                <option value="dx">大兴区</option>
+                                <option value="hr">怀柔区</option>
+                                <option value="pg">平谷区</option>
+                                <option value="my">密云区</option>
+                                <option value="yq">延庆区</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <select name="areajq" id="areajq" class="form-control">
+                                <option value="0">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-item form-group">
+                <label for="storejq" class="col-xs-4 control-label text-center">
+                    <span class="glyphicon glyphicon-home"></span> 选择门店
+                </label>
+                <div class="col-xs-8">
+                    <select name="storejq" id="storejq" class="form-control">
+                        <option value="0">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-item form-group">
+                <label for="ps" class="col-xs-4 control-label text-center">
+                    <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注
+                </label>
+                <div class="col-xs-8">
+            <textarea name="ps" id="ps" class="form-control" rows="3">
+                </textarea>
+                </div>
+            </div>
+            <div class="input-item form-group">
+                <div class="col-xs-offset-1 col-xs-10">
+                    <input type="button" id="submit-button" name="submit-button" value="提交"
+                           class="btn btn-primary form-control"/>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    <p id="text"></p>
+    <p id="s4"></p>
+    <p id="s5"></p>
+    <p id="s6" style="display:none">""</p>
+
+
+    <p><input type=text size=5 name=a>+<input type=text size=5 name=b> =<span id=result>?</span>
+        <a href=# id=calculate>ajax go</a>
+    </p>
+
+
+    <script src="/static/installmentjq2.js">
+
+    </script>
+
+</div>
+
+<div class="container footer">
+    <div class="row">
+        <div class="col-xs-8 btn-group">
+            <button type="button" class="btn btn-default">按钮 1</button>
+            <button type="button" class="btn btn-default">按钮 2</button>
+            <div class="dropup btn-group">
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                    其他页面
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="mailto:jwn6@sina.com">联系我</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/placeorder">下单页面
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/userlist">用户清单
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/multimedia">多媒体平台
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="/installment">分期页面
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-4">
+                <span id="time_now">
+                    <script>
+                        var date_now = new Date();
+                        var tn = document.getElementById("time_now");
+                        tn.innerHTML = date_now.toString().substring(4,16);
+                        tn.style.fontSize = "60%";
+
+                    </script>
+                </span>
+        </div>
+    </div>
+
+</div>
+<!-- 必须在要加载事件的组件后定义-->
+</div>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
+<script>
+moment.locale("en");
+function flask_moment_render(elem) {
+    $(elem).text(eval('moment("' + $(elem).data('timestamp') + '").' + $(elem).data('format') + ';'));
+    $(elem).removeClass('flask-moment').show();
+}
+function flask_moment_render_all() {
+    $('.flask-moment').each(function() {
+        flask_moment_render(this);
+        if ($(this).data('refresh')) {
+            (function(elem, interval) { setInterval(function() { flask_moment_render(elem) }, interval); })(this, $(this).data('refresh'));
+        }
+    })
+}
+$(document).ready(function() {
+    flask_moment_render_all();
+});
+
+</script>
+</body>
+</html>

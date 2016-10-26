@@ -14,13 +14,13 @@
     <div></div>
 </div>
 <div class="row">
-<img src="/static/fenqi.png" alt="分期0利息0手续费" class="img-responsive">
+<img src="/static/fenqi2.png" alt="分期0利息0手续费" class="img-responsive">
 </div>
 <div class="row">
 <div class="alert alert-danger col-xs-offset-1 col-xs-10" id="warning-info">错误！请进行一些更改。</div>
 </div>
 <!--没有name属性的<input>的数据不会被提交-->
-<form role="form" action="/placeOrder" method="POST" id="ins-form" class="form-horizontal">
+<form role="form" action="/placeOrder" method="POST" id="ins-form" class="form-horizontal" name="ins-form">
 <fieldset>
     <legend>分期预约信息</legend>
     <div class="input-item form-group">
@@ -119,7 +119,7 @@
     </div>
     <div class="input-item form-group">
         <div class="col-xs-offset-1 col-xs-10">
-            <input type="button" id="submit" name="submit" value="提交" class="btn btn-primary form-control"/>
+            <input type="button" id="submit-button" name="submit-button" value="提交" class="btn btn-primary form-control"/>
         </div>
     </div>
 
