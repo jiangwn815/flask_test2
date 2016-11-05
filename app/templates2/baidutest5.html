@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        body{
-            width:100%;
-        }
         *{
             margin:0px;
             padding:0px;
         }
+        body{
+            width:100%;
+            background:#ccc;
+        }
+
         #head,#footer{
-            background:#555;
-            height:80px;
+            background:#444;
+            height:60px;
             width:100%;
             position:fixed;
 
@@ -24,17 +26,12 @@
         #footer{
             bottom:0%;
         }
-        #content{
-            margin-top:90px;
-            float:left;
-        }
 
         ul>li{
             float:right;
             margin-left:20px;
             margin-top:20px;
             color:white;
-
         }
         ul>li:first-child{
             margin-right:20px;
@@ -44,6 +41,47 @@
         }
         li>a:visited{
             color:#aaa;
+        }
+        #sidebar{
+            float:right;
+            width:360px;
+            margin-right:20px;
+
+            padding:20px;
+        }
+        #content{
+            margin-right:440px;
+
+        }
+
+        div#content>div,#sidebar{
+            background:#fff;
+            border:1px solid #aaa;
+            border-right:3px solid #999;
+
+            border-bottom:3px solid #999;
+            margin-bottom:20px;
+            padding:20px;
+        }
+        #main-content{
+            margin-top:80px;
+            margin-left:20px;
+            margin-bottom:80px;
+
+        }
+        .sq{
+            width:100px;
+            height:100px;
+
+        }
+        div.imgdiv{
+            float:left;
+            margin:20px;
+            padding:10px;
+            border:1px solid #aaa;
+        }
+        .forclear{
+            clear:both;
         }
     </style>
 </head>
@@ -56,9 +94,64 @@
             <li><a href="#">超链接4</a></li>
         </ul>
     </div>
-    <div id="content">
-        <div>kkkk</div>
+    <div id="main-content">
+    <div id="sidebar">
+        <h2>标题栏</h2>
     </div>
+    <div id="content">
+        <div>
+            <h1>文章一级标题</h1>
+            <h2>2nd level title</h2>
+            <span>author</span><span>time</span>
+            <p>The &lt hr &gt tag defines a thematic break in an HTML page, and is most
+            often displayed as a horizontal rule.The &lt hr &gt element is used to separate
+            content (or define a change) in an HTML page:</p>
+        </div>
+        <div>kkkkkkkkkkkkkkkkkkkkkkkkkkkk</div>
+        <div>kkkkkkkkkkkkkkkkkkkkkkkkkkkk</div>
+        <div>kkkkkkkkkkkkkkkkkkkkkkkkkkkk</div>
+        <div>
+            <h2>图片</h2>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="imgdiv">
+                <h3>图片1</h3>
+                <img class="sq" src="http://img4.cache.netease.com/photo/0026/2015-05-19/APVC513454A40026.jpg">
+            </div>
+            <div class="forclear"></div>
+        </div>
+    </div>
+        </div>
     <div id="footer">ddd</div>
 </body>
 </html>

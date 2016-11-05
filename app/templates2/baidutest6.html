@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #logo{
+            height:50px;
+            display:inline;
+        }
+        #navli{
+            margin-left:300px;
+            list-style:none;
+        }
+        ul#navli{
+            float:right;
+        }
+        #navli>li{
+            float:left;
+            margin-right:30px;
+            margin-top:12px;
+
+        }
+        li>a{
+            padding:18px;
+        }
+        a:link{
+            text-decoration:none;
+        }
+        #nav a:link{
+            color:#666;
+            text-decoration:none;
+        }
+        #nav a:hover{
+            color:#f00;
+            border-bottom:8px solid #f00;
+
+        }
+        #nav a:visited{
+            color:#666;
+            text-decoration:none;
+        }
+        #nav{
+            min-width:1200px;
+            width:1200px;
+            margin:0 auto;
+            font-size:90%;
+        }
+        #banner{
+            background:url(http://cdn.pcbeta.attachment.inimc.com/data/attachment/forum/201401/04/224718wj6wdwzdmbbjz3ii.jpg) no-repeat;
+
+            height:600px;
+            min-width:1200px;
+        }
+        h1#tt{
+            font-size:300%;
+            color:#fff;
+            position:relative;
+            top:180px;
+            left:80px;
+            margin:0px
+        }
+        p#slogan{
+            color:#fff;
+            font-size:120%;
+            position:relative;
+            top:190px;
+            left:80px;
+            margin:0px;
+        }
+        #banner{
+            position:relative;
+
+        }
+        #enter{
+            background:#f55;
+            width:180px;
+            letter-spacing:2px;
+            color:#fff;
+            font-size:150%;
+            padding:5px 40px 5px 40px;
+            margin-left:80px;
+            margin-top:250px;
+            display:block;
+            text-align:center;
+        }
+        .topic-icon{
+            height:120px;
+            width:120px;
+            margin:20px 80px;
+        }
+        #topic,#new-world{
+            min-width:1400px;
+            width:1400px;
+            height:250px;
+            margin:0 auto;
+
+        }
+        div#question,div#pics,#aboutus{
+            background:#eee;
+            text-align:center;
+            height:500px;
+            min-width:1400px;
+        }
+        div.text{
+            float:left;
+            display:inline;
+            width:298px;
+            text-align:center;
+        }
+        #desc>div{
+            border-right:2px solid #aaa;
+            height:65px;
+        }
+        div#alilogo{
+            background:url(http://t.alipayobjects.com/images/T11rdgXbFkXXXXXXXX.png) no-repeat;
+            width:240px;
+            height:80px;
+            position:relative;
+            top:30%;
+            left:40%;
+
+        }
+        div#question>h1{
+            position:relative;
+            top:40%;
+            text-align:center;
+            font-size:300%;
+            color:#aaa;
+        }
+        #search{
+            background:url(http://photo.enterdesk.com/2009-5-5/enterdesk.com-3916291CA374F2BFED3FC636EE5CFBF7.jpg);
+            min-width:1200px;
+
+            height:300px;
+            margin:0 auto;
+            text-align:center;
+            padding-top:60px;
+
+        }
+        #search>h1,#search>h6{
+            color:#ddd;
+
+        }
+        #search>h6{
+            margin-top:20px;
+        }
+        h1>span{
+            padding:5px;
+            border-bottom:2px solid #ddd;
+        }
+
+
+        .form-part{
+            width:200px;
+            height:40px;
+            line-height:40px;
+            font-size:100%;
+            margin-left:30px;
+            margin-top:60px;
+            /*高度生效必须设定背景颜色*/
+            background:#ddd;
+            border:0px;
+
+
+        }
+        #state{
+            border-radius:0px;
+        }
+        #search-submit{
+            background:#f55;
+            color:#fff;
+
+        }
+        ul#picview{
+            margin:0px auto;
+            width:1200px;
+            height:270px;
+
+        }
+        #picview>li{
+            float:left;
+            list-style-type:none;
+            margin:25px;
+
+        }
+        .picture>img{
+            height:350px;
+        }
+        #pics{
+            padding-top:50px;
+        }
+        #new-world{
+            height:450px;
+        }
+        #nwpic{
+            background:url("http://attach.bbs.miui.com/forum/201409/05/164828g71ar48xlpy8xzfl.jpg") no-repeat;
+            background-size:cover;
+            height:450px;
+            max-height:450px;
+            width:1000px;
+            text-align:center;
+            color:#fff;
+
+            float:left;
+        }
+        #bigword{
+            font-size:400%;
+            position:relative;
+            top:40px;
+        }
+        #bigtime{
+            font-size:1000%;
+        }
+        #nwtext{
+            width:400px;
+            height:450px;
+            float:left;
+            text-align:center;
+        }
+        #aboutus{
+            background:#fff;
+            position:relative;
+            width:1400px;
+            margin:0 auto;
+        }
+        #redabout{
+            background:#44f;
+            width:500px;
+            height:500px;
+            position:absolute;
+
+        }
+        #whiteabout{
+            background:#fff;
+            width:500px;
+            height:500px;
+            position:absolute;
+            left:500px;
+        }
+        #picabout{
+            background:url("http://s3.lvjs.com.cn/uploads/pc/place2/2015-09-08/c88e6a58-c1f9-42e2-8bff-b1dec1bf7e2e.jpg");
+            background-size:cover;
+            width:400px;
+            height:500px;
+            position:absolute;
+            left:1000px;
+        }
+        .abouttext{
+            position:relative;
+            top:30%;
+            margin:0 auto;
+            font-size:150%;
+            color:white;
+        }
+        .abouttext span{
+            border-bottom:2px solid #fff;
+            padding-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <img id="logo" src="http://image1.chinatelecom-ec.com/image/189cnv2/indexv2/img_head/logo.png">
+        <ul id="navli">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">最新活动</a></li>
+            <li><a href="#">项目介绍</a></li>
+            <li><a href="#">爱心社区</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#" style="color:#f00">登录</a></li>
+        </ul>
+    </div>
+    <div id="banner">
+        <h1 id="tt">Time of new life</h1>
+
+        <p id="slogan">新时代，年轻的人们让我们一起
+            <br>
+            体验新生活，享受新生活
+        </p>
+        <a id="enter" href="#">开始体验</a>
+    </div>
+    <div id="topic">
+        <div id="topic-logo">
+            <div class="text"><img src="http://img.zcool.cn/community/0140155640036a6ac7259e0fb4911a.jpg" class="topic-icon"></div>
+            <div class="text"><img src="http://img.zcool.cn/community/0140155640036a6ac7259e0fb4911a.jpg" class="topic-icon"></div>
+            <div class="text"><img src="http://img.zcool.cn/community/0140155640036a6ac7259e0fb4911a.jpg" class="topic-icon"></div>
+            <div class="text"><img src="http://img.zcool.cn/community/0140155640036a6ac7259e0fb4911a.jpg" class="topic-icon"></div>
+        </div>
+        <div id="desc">
+            <div class="text"><span>打算全新生活，让你<br>更爱你的生活</span></div>
+            <div class="text"><span>打算全新生活，让你<br>更爱你的生活</span></div>
+            <div class="text"><span>打算全新生活，让你<br>更爱你的生活</span></div>
+            <div class="text"><span>打算全新生活，让你<br>更爱你的生活</span></div>
+        </div>
+    </div>
+    <div id="question">
+        <div id="alilogo"></div>
+
+        <h1>关于新世界，你不知道的还有什么？</h1>
+    </div>
+    <div id="search">
+        <h1>查找新世<span>界</span>活动信息</h1>
+        <h6>每个世界有不同的活动信息，请自主查询您需要了解的城市信息</h6>
+        <div id="city-search">
+            <form name="search-form" id="search-form" action="/" method="get">
+                <select id="state" name="state" class="form-part">
+                    <option>国家</option>
+                    <option>中国</option>
+                    <option>美国</option>
+                    <option>英国</option>
+                    <option>火星国</option>
+                </select>
+                <select id="city" name="city" class="form-part">
+                    <option>城市</option>
+                    <option>北京</option>
+                    <option>洛杉矶</option>
+                    <option>伦敦</option>
+                    <option>坑</option>
+                </select>
+                <select id="area" name="area" class="form-part">
+                    <option>区域</option>
+                    <option>城八区</option>
+                    <option>郊区</option>
+                    <option>东四区</option>
+                    <option>低洼区</option>
+                </select>
+                <input type="button" name="search-submit" id="search-submit"  class="form-part" value="搜    索" />
+            </form>
+        </div>
+
+    </div>
+    <div id="pics">
+        <ul id="picview">
+        <li class="picture">
+            <img id="p1" src="http://yishu.sdnews.com.cn/scqw/201412/W020141208573770479979.jpg">
+            <p>向日葵</p>
+        </li>
+        <li class="picture">
+            <p>向日葵</p>
+            <img id="p2" src="http://yishu.sdnews.com.cn/scqw/201412/W020141208573770479979.jpg">
+        </li>
+        <li class="picture">
+            <img id="p3" src="http://yishu.sdnews.com.cn/scqw/201412/W020141208573770479979.jpg">
+            <p>向日葵</p>
+        </li>
+        <li class="picture">
+            <p>向日葵</p>
+            <img id="p4" src="http://yishu.sdnews.com.cn/scqw/201412/W020141208573770479979.jpg">
+        </li>
+        </ul>
+    </div>
+    <div id="new-world">
+        <div id="nwpic">
+            <p id="bigword">新世界</p>
+            <p id="bigtime">TIME</p>
+            <p style="font-size:200%">@新世界 - 北京</p>
+            <p style="font-size:200%">2016.04.01</p>
+        </div>
+        <div id="nwtext">
+            <h2 style="text-align:center">新世界/<span style="color:red">01</span></h2>
+            <br>
+            <p style="width:50%;margin:0 auto;text-align:left">新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界</p>
+        </div>
+
+    </div>
+    <div id="aboutus">
+        <div id="redabout">
+            <div class="abouttext">
+                <p>新世界</p>
+                <p>关于爱<span>生活</span>的我们</p>
+                <p class="whitebutton"><a href="#">查看更多</a></p>
+            </div>
+        </div>
+        <div id="whiteabout">
+            <div class="abouttext" style="color:#222">
+                <p>新世界</p>
+                <p>关于爱<span>生活</span>的我们</p>
+                <p class="redbutton"><a href="#">查看更多</a></p>
+            </div>
+        </div>
+        <div id="picabout"></div>
+    </div>
+
+</body>
+</html>
