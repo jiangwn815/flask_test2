@@ -93,6 +93,11 @@ def installment2():
 
     return render_template('installment2.html')
 
+@main.route("/installment3", methods=['GET'])
+def installment3():
+
+    return render_template('installment3.html')
+
 
 @main.route('/register', methods=['GET', 'POST'])  # HEAD&OPTIONS由flask自动处理
 def register():

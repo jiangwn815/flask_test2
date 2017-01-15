@@ -67,7 +67,7 @@ def create_app(config_name):
     '''
     # 注册蓝图
     from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint) # 注册前蓝图中的路由处于休眠，注册后才成为程序的一部分
+    app.register_blueprint(main_blueprint)  # 注册前蓝图中的路由处于休眠，注册后才成为程序的一部分
     '''
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix='/auth')

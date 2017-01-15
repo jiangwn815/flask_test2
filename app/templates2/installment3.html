@@ -4,12 +4,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/installment.css" rel="stylesheet">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/installment3.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <title>中国电信北京公司分期购机页面</title>
+
 </head>
 <body>
+    <header>
+        <div class="nav-header">
+            <h1><img id="nav-logo" src="/static/bj_header.png" class="img-responsive" ></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">分期</a></li>
+                    <li><a href="#">冻结</a></li>
+                    <li><a href="#">信用</a></li>
+                    <li><a href="#">担保</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="page">
+        <section id="installment-bank">
+            <header>
+                <h2>信用卡分期支持的银行</h2>
+                <a href="#" style="color:rgb(294,98,47)">了解更多</a>
+            </header>
+            <div class="bank">
+                <ul>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="cmc"></div>
+                            <span class="bank-name">招商银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="icbc"></div>
+                            <span class="bank-name">工商银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="boc"></div>
+                            <span class="bank-name">中国银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="gdb"></div>
+                            <span class="bank-name">广发银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="ab"></div>
+                            <span class="bank-name">农业银行</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="frozen-bank">
+            <header>
+                <h2>冻结担保支持的银行</h2>
+                <a href="#" style="color:rgb(294,98,47)">了解更多</a>
+            </header>
+            <div class="bank">
+                <ul>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="ceb"></div>
+                            <span class="bank-name">光大银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="nsh"></div>
+                            <span class="bank-name">北京农商银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="ms"></div>
+                            <span class="bank-name">民生银行</span>
+                        </a>
+                    </li>
+                    <li class="bank-item">
+                        <a href="#">
+                            <div class="bank-logo" id="bb"></div>
+                            <span class="bank-name">北京银行</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+        <section id="form-part">
+            <header>分期订单</header>
+            <form method="get" action="/userlist" name="installment-form" id="installment-form" onsubmit="return true">
+                <div class="form-item">
+                    <label for="district">营业厅选择:</label>
+                    <select id="district" name="district" >
+                        <option value="qx">请选择</option>
+                    </select>
+                    <select id="area" name="area" >
+                        <option value="qx">请选择</option>
+                    </select>
+                    <select id="store" name="store" >
+                        <option value="qx">请选择</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label class="six-space">联系方式：</label>
+                    <input type="text" name="mobile" id="mobile" placeholder="请输入11位手机号码" />
+                </div>
+                <div class="form-item">
+                    <input type="submit" name="submit" id="submit" value="提交" />
+                </div>
+
+            </form>
+        </section>
+        <section id="baidutest18">
+            <div class="btn-array">
+                <input type="text" id="number-input" style="width:17%"/>
+                <button type="button" id="left-in" class="btn" style="width:17%">left-in</button>
+                <button type="button" id="right-in" class="btn" style="width:17%">right-in</button>
+                <button type="button" id="left-out" class="btn" style="width:17%">left-out</button>
+                <button type="button" id="right-out" class="btn" style="width:17%">right-out</button>
+            </div>
+            <div style="height: 10rem" id="btn-array" class="btn-array">
+                <div style="height: 27%" class="entry">27</div>
+                <div style="height: 37%" class="entry">37</div>
+                <div style="height: 17%" class="entry">17</div>
+            </div>
+            <button type="button" id="bubble-sort" class="btn">bubble sort</button>
+
+
+        </section>
+        <section>
+            <div class="flex-div">
+            <textarea id="multi-input"></textarea>
+            <button type="button" id="multi-in" class="btn btn-primary">Add</button>
+            </div>
+            <div id="multi-array"></div>
+            <div class="flex-div">
+                <input type="text" id="search-text" />
+                <button type="button" class="btn btn-primary" id="search-button">Search</button>
+            </div>
+        </section>
+        <section>
+            <p id="debug-info"></p>
+        </section>
+        <section>
+            <label>Tags:<input type="text" id="tags" /></label>
+            <div class="flex-div tag-item" id="tag-div">
+
+            </div>
+        </section>
+        <script src="\static\installment3.js"></script>
+        <script src="\static\baidutask.js"></script>
+    </div>
 
 </body>
 </html>
